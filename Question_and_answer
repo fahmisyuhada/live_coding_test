@@ -1,0 +1,214 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOr3xF7xt1lNeYgOOfSnjTA",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/fahmisyuhada/live_coding_test/blob/main/Question_and_answer\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Must Repeated Character\n",
+        "Given a string s return the most frequent character (in alphabet letter) in the string s.\n",
+        "\n",
+        "### Example 1\n",
+        "Input : 'aaauuijjjjjjjj12'\n",
+        "Output : 'j'"
+      ],
+      "metadata": {
+        "id": "0qxM-FLYt2v0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 52
+        },
+        "id": "FYSSiC2bl3nK",
+        "outputId": "fe3526a8-d71d-45c6-9907-320b3bc6d7b3"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The original string is : GeeksforGeeks\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'e'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ],
+      "source": [
+        "# Python 3 code to demonstrate\n",
+        "# Maximum frequency character in String\n",
+        "# naive method\n",
+        "\n",
+        "# initializing string\n",
+        "test_str = \"GeeksforGeeks\"\n",
+        "\n",
+        "# printing original string\n",
+        "print (\"The original string is : \" + test_str)\n",
+        "\n",
+        "# using naive method to get\n",
+        "# Maximum frequency character in String\n",
+        "all_freq = {}\n",
+        "for i in test_str:\n",
+        "  if i in all_freq:\n",
+        "    all_freq[i] += 1\n",
+        "  else:\n",
+        "    all_freq[i] = 1\n",
+        "\n",
+        "# res = max(all_freq, key = all_freq.get)\n",
+        "\n",
+        "max_char = '';\n",
+        "max_val = 0;\n",
+        "for i in all_freq:\n",
+        "  if max_val<all_freq[i]:\n",
+        "    max_val = all_freq[i]\n",
+        "    max_char = i"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Special Integer\n",
+        "\n",
+        "Given an array k of integer, find the special integer x such that there are x integer in the array k that are larger than or equal to x. The special integer doesn't have to exist in the array k.\n",
+        "\n",
+        "you can assume that there's always going to be one special integer or none in the array k. If no special integers are found. return -1\n",
+        "\n",
+        "### Example:\n",
+        "*   Input : nums = [0,4,1,0,4]\n",
+        "*   Output: 2\n",
+        "*   Explanation: There are 2 values that are greater than or equal to 2\n",
+        "### Constrains:\n",
+        "*   l <= k.length <= 100\n",
+        "*   0 <= k[i] <= 1000\n",
+        "*   l contains online positive integer\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "O0GMqK2VzHYB"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Solution {\n",
+        "    public int specialArray(int[] nums) {\n",
+        "        Arrays.sort(nums);\n",
+        "        int n = nums.length;\n",
+        "        if (nums[0] >= n) {\n",
+        "            return n;\n",
+        "        }\n",
+        "        int x = nums[0];\n",
+        "        for (int i = 1; i < n; i++) {\n",
+        "            if (nums[i-1] > n) {\n",
+        "                return -1;\n",
+        "            }\n",
+        "            if (nums[i] == nums[i - 1]) {\n",
+        "                continue;\n",
+        "            }\n",
+        "            int p = n - i;\n",
+        "            if (nums[i] >= p && nums[i-1] < p) {\n",
+        "                return p;\n",
+        "            }\n",
+        "        }\n",
+        "        return -1;\n",
+        "    }\n",
+        "}"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 187
+        },
+        "id": "JDsS0lOmwKZi",
+        "outputId": "c997293b-4cbb-4e30-e8bf-8b853eb0d68f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-24-fe63b7bd828e>\u001b[0m in \u001b[0;36m<cell line: 2>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0msys\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mint_info\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0mint_info\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'a'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: 'sys.int_info' object is not callable"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Solution {\n",
+        "    public int specialArray(int[] nums) {\n",
+        "        int n = nums.length;\n",
+        "        int[] a = new int[n+1];\n",
+        "        for (int num : nums) {\n",
+        "            if (num > n) {\n",
+        "                a[n]++;\n",
+        "            } else {\n",
+        "                a[num]++;\n",
+        "            }\n",
+        "        }\n",
+        "        int sum = 0;\n",
+        "        for (int i = n; i >= 0; i--) {\n",
+        "            sum += a[i];\n",
+        "            if (i == sum) {\n",
+        "                return i;\n",
+        "            }\n",
+        "        }\n",
+        "        return -1;\n",
+        "    }\n",
+        "}\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "CE3EUHBr3Opp"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
